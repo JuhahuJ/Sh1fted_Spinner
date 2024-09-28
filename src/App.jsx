@@ -117,7 +117,7 @@ const App = () => {
     randomIndex = Math.floor(Math.random() * people.length)
     const x = 360 / people.length * randomIndex
     const y = 360 / people.length * (randomIndex + 1)
-    if (randomIndex > 0) randomValue = Math.floor(Math.random() * (y - x + 1)) + x
+    if (randomIndex > 0) randomValue = -(Math.floor(Math.random() * (y - x + 1)) + x) + 360 / people.length
     else randomValue = Math.floor(Math.random() * (y - x + 1)) + x
     console.log(randomIndex, randomValue, people[randomIndex])
   }
@@ -133,7 +133,7 @@ const App = () => {
       let newRotation = prevrotation_person + multiplier
 
       if (newRotation > randomValue) {//katso että pysähtyy oikeaan kohtaan
-        newRotation -= 360
+        newRotation -= 720
         rounds -= 1
       }
 
